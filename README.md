@@ -40,9 +40,9 @@ npm start
 
 ## 📬 Contact
 
-- GitHub: https://github.com/YOUR_USERNAME
-- LinkedIn: https://linkedin.com/in/YOUR_LINKEDIN
-- Email: your.email@example.com
+- GitHub: https://github.com/BharatD4
+- LinkedIn: https://www.linkedin.com/in/bharat-dewangan-533ba3290/
+- Email: bharatbd272004@gmial.com
 
 ---
 
