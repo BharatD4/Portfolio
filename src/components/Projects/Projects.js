@@ -25,7 +25,7 @@ function Projects() {
     isBlog={false}
     title="Face Recognition Attendance System"
     description="An AI-based attendance system developed using Python, OpenCV, and machine learning for automatic face detection and attendance management."
-    ghLink="#"
+    ghLink="https://github.com/BharatD4/Face-Recognition-Based-Attendance-Monitoring-System.git"
   />
 </Col>
                <Col md={4} className="project-card">
