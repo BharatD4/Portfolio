@@ -46,7 +46,7 @@ npm start
 
 - GitHub: https://github.com/BharatD4
 - LinkedIn: https://www.linkedin.com/in/bharat-dewangan-533ba3290/
-- Email: bharatbd272004@gmial.com
+- Email: bharatbd272004@gmail.com
 
 ---
 
