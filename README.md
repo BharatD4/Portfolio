@@ -3,7 +3,6 @@
 
 
 # Bharat Dewangan - Portfolio
-![Portfolio Preview](./Images/portfolio.png)
 
 A modern and responsive personal portfolio website built with React.js to showcase my skills, projects, resume, and contact information.
 
