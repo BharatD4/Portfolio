@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 
 import { Link } from "react-router-dom";
+
 import {
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
@@ -16,44 +17,68 @@ function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
 
-  function scrollHandler() {
-    if (window.scrollY >= 20) {
-      updateNavbar(true);
-    } else {
-      updateNavbar(false);
-    }
-  }
+  useEffect(() => {
+    const scrollHandler = () => {
+      if (window.scrollY >= 30) {
+        updateNavbar(true);
+      } else {
+        updateNavbar(false);
+      }
+    };
 
-  window.addEventListener("scroll", scrollHandler);
+    window.addEventListener("scroll", scrollHandler);
+
+    return () => {
+      window.removeEventListener("scroll", scrollHandler);
+    };
+  }, []);
 
   return (
     <Navbar
       expanded={expand}
       fixed="top"
       expand="md"
-      className={navColour ? "sticky" : "navbar"}
+      className={`modern-navbar ${navColour ? "navbar-scrolled" : ""}`}
     >
       <Container>
-        <Navbar.Brand href="/" className="d-flex">
-  <h2 className="purple" style={{ margin: 0, fontWeight: "bold" }}>
-    BD.
-  </h2>
-</Navbar.Brand>
+
+        {/* LOGO */}
+        <Navbar.Brand
+          as={Link}
+          to="/"
+          className="navbar-logo"
+          onClick={() => updateExpanded(false)}
+        >
+          <span className="logo-bracket">&lt;</span>
+          <span className="logo-text">BD</span>
+          <span className="logo-bracket">/&gt;</span>
+        </Navbar.Brand>
+
+        {/* MOBILE TOGGLE */}
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
           onClick={() => {
             updateExpanded(expand ? false : "expanded");
           }}
+          className="modern-navbar-toggle"
         >
           <span></span>
           <span></span>
           <span></span>
         </Navbar.Toggle>
+
+        {/* NAVIGATION */}
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto" defaultActiveKey="#home">
+          <Nav className="ms-auto modern-nav">
+
             <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
-                <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
+              <Nav.Link
+                as={Link}
+                to="/"
+                onClick={() => updateExpanded(false)}
+              >
+                <AiOutlineHome />
+                <span>Home</span>
               </Nav.Link>
             </Nav.Item>
 
@@ -63,7 +88,8 @@ function NavBar() {
                 to="/about"
                 onClick={() => updateExpanded(false)}
               >
-                <AiOutlineUser style={{ marginBottom: "2px" }} /> About
+                <AiOutlineUser />
+                <span>About</span>
               </Nav.Link>
             </Nav.Item>
 
@@ -73,10 +99,8 @@ function NavBar() {
                 to="/project"
                 onClick={() => updateExpanded(false)}
               >
-                <AiOutlineFundProjectionScreen
-                  style={{ marginBottom: "2px" }}
-                />{" "}
-                Projects
+                <AiOutlineFundProjectionScreen />
+                <span>Projects</span>
               </Nav.Link>
             </Nav.Item>
 
@@ -86,15 +110,14 @@ function NavBar() {
                 to="/resume"
                 onClick={() => updateExpanded(false)}
               >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
+                <CgFileDocument />
+                <span>Resume</span>
               </Nav.Link>
             </Nav.Item>
 
-            
-
-            
           </Nav>
         </Navbar.Collapse>
+
       </Container>
     </Navbar>
   );

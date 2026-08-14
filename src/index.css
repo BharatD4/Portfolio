@@ -1,11 +1,742 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-@import url("https://fonts.googleapis.com/css2?family=Outfit&family=PT+Mono&display=swap");
+/* stylelint-disable-next-line at-rule-no-unknown */
+/* stylelint-disable-next-line at-rule-no-unknown */
+@tailwind base;
+/* stylelint-disable-next-line at-rule-no-unknown */
+@tailwind components;
+/* stylelint-disable-next-line at-rule-no-unknown */
+@tailwind utilities;
+
+
+/* =========================================================
+   PROFESSIONAL DEVELOPER PORTFOLIO THEME
+   ========================================================= */
+
+:root {
+  --bg-primary: #050816;
+  --bg-secondary: #0a1020;
+
+  --surface: rgba(15, 23, 42, 0.62);
+  --surface-hover: rgba(20, 30, 55, 0.82);
+
+  --border: rgba(148, 163, 184, 0.16);
+  --border-hover: rgba(139, 92, 246, 0.55);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --accent-purple: #8b5cf6;
+  --accent-blue: #3b82f6;
+  --accent-cyan: #06b6d4;
+
+  --glow-purple: rgba(139, 92, 246, 0.35);
+  --glow-cyan: rgba(6, 182, 212, 0.3);
+
+  --radius: 18px;
+}
+
+
+/* =========================================================
+   GLOBAL RESET
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
-  font-family: "PT Mono", monospace !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
+  padding: 0;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(139, 92, 246, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 20%,
+      rgba(6, 182, 212, 0.10),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #050816 0%,
+      #07101f 45%,
+      #050816 100%
+    );
+
+  color: var(--text-primary);
+
+  font-family: 'Inter', sans-serif;
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+
+/* =========================================================
+   ROOT
+   ========================================================= */
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+
+/* =========================================================
+   CUSTOM FONTS
+   ========================================================= */
+
+
+
+.font-moderniz {
+  font-family: 'Space Grotesk', 'Inter', sans-serif !important;
+}
+
+.font-cascadia {
+  font-family: 'Inter', sans-serif !important;
+}
+
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  background: rgba(139, 92, 246, 0.35);
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050816;
+}
+
+::-webkit-scrollbar-thumb {
+  background:
+    linear-gradient(
+      180deg,
+      var(--accent-purple),
+      var(--accent-cyan)
+    );
+
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:
+    linear-gradient(
+      180deg,
+      #a78bfa,
+      #22d3ee
+    );
+}
+
+
+/* =========================================================
+   GLOBAL AMBIENT LIGHT
+   ========================================================= */
+
+body::before {
+  content: "";
+
+  position: fixed;
+
+  width: 500px;
+  height: 500px;
+
+  top: -180px;
+  left: -180px;
+
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.18),
+    transparent 65%
+  );
+
+  filter: blur(50px);
+
+  pointer-events: none;
+
+  z-index: -2;
+
+  animation: ambientFloat 12s ease-in-out infinite;
+}
+
+
+body::after {
+  content: "";
+
+  position: fixed;
+
+  width: 450px;
+  height: 450px;
+
+  right: -150px;
+  bottom: -150px;
+
+  background: radial-gradient(
+    circle,
+    rgba(6, 182, 212, 0.15),
+    transparent 65%
+  );
+
+  filter: blur(50px);
+
+  pointer-events: none;
+
+  z-index: -2;
+
+  animation: ambientFloatReverse 14s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   ANIMATED BACKGROUND GRID
+   ========================================================= */
+
+body {
+  background-image:
+    linear-gradient(
+      rgba(148, 163, 184, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(148, 163, 184, 0.035) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(139, 92, 246, 0.13),
+      transparent 45%
+    ),
+    linear-gradient(
+      135deg,
+      #050816,
+      #07101f,
+      #050816
+    );
+
+  background-size:
+    50px 50px,
+    50px 50px,
+    100% 100%,
+    300% 300%;
+
+  animation: backgroundGradient 18s ease infinite;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+header {
+  transition:
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+
+
+/* Navbar glass effect */
+
+header:hover {
+  box-shadow:
+    0 15px 50px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Navbar links */
+
+nav a {
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+nav a:hover {
+  color: #a78bfa !important;
+}
+
+
+/* =========================================================
+   MAIN HEADINGS
+   ========================================================= */
+
+.main-heading {
+  letter-spacing: -0.04em;
+
+  background:
+    linear-gradient(
+      120deg,
+      #ffffff 10%,
+      #c4b5fd 40%,
+      #67e8f9 70%,
+      #ffffff 90%
+    );
+
+  background-size: 250% auto;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  animation:
+    headingGradient 7s linear infinite;
+
+  filter:
+    drop-shadow(
+      0 0 30px rgba(139, 92, 246, 0.15)
+    );
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+section h1,
+section h2,
+section h3 {
+  letter-spacing: -0.025em;
+}
+
+
+/* =========================================================
+   GLASS CARDS
+   ========================================================= */
+
+.group.relative.p-6.rounded-2xl {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.055),
+      rgba(255, 255, 255, 0.015)
+    ) !important;
+
+  border:
+    1px solid rgba(148, 163, 184, 0.14) !important;
+
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.18);
+
+  transition:
+    transform 0.45s cubic-bezier(.2,.8,.2,1),
+    border-color 0.35s ease,
+    box-shadow 0.45s ease;
+}
+
+
+.group.relative.p-6.rounded-2xl:hover {
+  transform:
+    translateY(-8px);
+
+  border-color:
+    rgba(139, 92, 246, 0.5) !important;
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.3),
+    0 0 35px rgba(139, 92, 246, 0.10);
+}
+
+
+/* =========================================================
+   ALL LARGE CARDS
+   ========================================================= */
+
+[class*="rounded-2xl"] {
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* Interactive buttons */
+
+button:hover {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   SOCIAL ICONS
+   ========================================================= */
+
+a[aria-label*="Profile"] {
+  background:
+    rgba(15, 23, 42, 0.65) !important;
+
+  border:
+    1px solid rgba(148, 163, 184, 0.18) !important;
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+a[aria-label*="Profile"]:hover {
+  transform:
+    translateY(-5px)
+    scale(1.05);
+
+  border-color:
+    rgba(139, 92, 246, 0.7) !important;
+
+  box-shadow:
+    0 0 25px rgba(139, 92, 246, 0.22);
+}
+
+
+/* =========================================================
+   SKILL BADGES
+   ========================================================= */
+
+.flex.flex-row.flex-wrap.gap-3
+  > div {
+  background:
+    rgba(15, 23, 42, 0.55) !important;
+
+  border:
+    1px solid rgba(148, 163, 184, 0.16) !important;
+
+  backdrop-filter: blur(10px);
+
+  color: #cbd5e1 !important;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.flex.flex-row.flex-wrap.gap-3
+  > div:hover {
+  transform:
+    translateY(-4px);
+
+  color: #ffffff !important;
+
+  border-color:
+    rgba(139, 92, 246, 0.65) !important;
+
+  box-shadow:
+    0 0 20px rgba(139, 92, 246, 0.16);
+}
+
+
+/* =========================================================
+   PROJECT CARDS
+   ========================================================= */
+
+#projects [class*="rounded"] {
+  transition:
+    transform 0.45s cubic-bezier(.2,.8,.2,1),
+    box-shadow 0.45s ease,
+    border-color 0.35s ease;
+}
+
+
+#projects [class*="rounded"]:hover {
+  transform:
+    translateY(-7px);
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.35),
+    0 0 30px rgba(6, 182, 212, 0.10);
+}
+
+
+/* =========================================================
+   CONTACT SECTION
+   ========================================================= */
+
+#contact {
+  position: relative;
+}
+
+
+#contact input,
+#contact textarea {
+  background:
+    rgba(15, 23, 42, 0.6) !important;
+
+  border:
+    1px solid rgba(148, 163, 184, 0.16) !important;
+
+  color: #f8fafc !important;
+
+  border-radius: 12px;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+
+#contact input:focus,
+#contact textarea:focus {
+  outline: none;
+
+  border-color:
+    rgba(139, 92, 246, 0.7) !important;
+
+  box-shadow:
+    0 0 0 3px rgba(139, 92, 246, 0.08),
+    0 0 25px rgba(139, 92, 246, 0.10);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+  border-top:
+    1px solid rgba(148, 163, 184, 0.08);
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(139, 92, 246, 0.035)
+    ) !important;
+}
+
+
+/* =========================================================
+   FLOATING ANIMATION
+   ========================================================= */
+
+@keyframes ambientFloat {
+
+  0%,
+  100% {
+    transform:
+      translate(0, 0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(80px, 50px)
+      scale(1.15);
+  }
+}
+
+
+@keyframes ambientFloatReverse {
+
+  0%,
+  100% {
+    transform:
+      translate(0, 0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(-60px, -40px)
+      scale(1.12);
+  }
+}
+
+
+/* =========================================================
+   BACKGROUND GRADIENT
+   ========================================================= */
+
+@keyframes backgroundGradient {
+
+  0% {
+    background-position:
+      0 0,
+      0 0,
+      0% 50%,
+      0% 50%;
+  }
+
+  50% {
+    background-position:
+      25px 25px,
+      25px 25px,
+      50% 50%,
+      100% 50%;
+  }
+
+  100% {
+    background-position:
+      0 0,
+      0 0,
+      100% 50%,
+      0% 50%;
+  }
+}
+
+
+/* =========================================================
+   HEADING GRADIENT
+   ========================================================= */
+
+@keyframes headingGradient {
+
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* =========================================================
+   FLOATING ORBS
+   ========================================================= */
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform:
+      translateY(0px);
+  }
+
+  50% {
+    transform:
+      translateY(-15px);
+  }
+}
+
+
+/* =========================================================
+   PRELOADER
+   ========================================================= */
+
+.bg-animated {
+  background:
+    radial-gradient(
+      circle at center,
+      #172554,
+      #080b18 60%,
+      #050816
+    );
+
+  background-size: 200% 200%;
+
+  animation:
+    backgroundGradient 10s ease infinite;
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    scroll-behavior: auto !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  body {
+    background-size:
+      35px 35px,
+      35px 35px,
+      100% 100%,
+      300% 300%;
+  }
+
+  .main-heading {
+    font-size: 2rem !important;
+  }
+
+  section {
+    overflow-x: hidden;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .main-heading {
+    font-size: 1.75rem !important;
+  }
+
+  body {
+    font-size: 14px;
+  }
 }

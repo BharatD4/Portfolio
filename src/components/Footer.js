@@ -1,61 +1,94 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import {
-  AiFillGithub,
-  
-  AiFillInstagram,
-} from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
 
 function Footer() {
-  let date = new Date();
-  let year = date.getFullYear();
+  const year = new Date().getFullYear();
+
   return (
-    <Container fluid className="footer">
-      <Row>
-        <Col md="4" className="footer-copywright">
-          <h3>© 2026 Bharat Dewangan. All Rights Reserved.</h3>
-        </Col>
-        <Col md="4" className="footer-copywright">
-          <h3>Copyright © {year} SB</h3>
-        </Col>
-        <Col md="4" className="footer-body">
-          <ul className="footer-icons">
-            <li className="social-icons">
-              <a
-                href="https://github.com/BharatD4"
-                style={{ color: "white" }}
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <AiFillGithub />
-              </a>
-            </li>
-          
-            <li className="social-icons">
-              <a
-                href="https://www.linkedin.com/in/bharat-dewangan-533ba3290/"
-                style={{ color: "white" }}
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <FaLinkedinIn />
-              </a>
-            </li>
-            <li className="social-icons">
-              <a
-                href="#"
-                style={{ color: "white" }}
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <AiFillInstagram />
-              </a>
-            </li>
-          </ul>
-        </Col>
-      </Row>
-    </Container>
+    <footer className="modern-footer">
+
+      <Container>
+
+        <Row className="footer-main-row align-items-center">
+
+          {/* BRAND */}
+
+          <Col md={4} className="footer-brand">
+
+            <div className="footer-logo">
+              <span>&lt;</span>BD<span>/&gt;</span>
+            </div>
+
+            <p>
+              Building modern software experiences
+              with clean code and creative technology.
+            </p>
+
+          </Col>
+
+
+          {/* STATUS */}
+
+          <Col md={4} className="footer-status">
+
+            <span className="footer-status-label">
+              AVAILABLE FOR
+            </span>
+
+            <h4>
+              Software Development
+            </h4>
+
+            <p>
+              Full Stack · AI · Web Technologies
+            </p>
+
+          </Col>
+
+
+          {/* BACK TO TOP */}
+
+          <Col md={4} className="footer-top-section">
+
+            <a
+              href="#home"
+              className="footer-back-top"
+            >
+              Back to top
+              <span>↑</span>
+            </a>
+
+          </Col>
+
+        </Row>
+
+
+        {/* DIVIDER */}
+
+        <div className="footer-divider"></div>
+
+
+        {/* BOTTOM */}
+
+        <div className="footer-bottom">
+
+          <span>
+            © {year} Bharat Dewangan
+          </span>
+
+          <span>
+            Designed & Built with React
+          </span>
+
+          <span>
+            All Rights Reserved.
+          </span>
+
+        </div>
+
+      </Container>
+
+    </footer>
   );
 }
 
