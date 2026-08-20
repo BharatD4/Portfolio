@@ -7,6 +7,7 @@ import face from "../../Assets/Projects/face-recognition.png";
 import analytics from "../../Assets/Projects/enterprise-data.png";
 import drone from "../../Assets/Projects/drone-ai.png";
 import saas from "../../Assets/Projects/multi-tenant-saas.png";
+import finwell from "../../Assets/Projects/finwell.png";
 
 function Projects() {
   return (
@@ -172,6 +173,16 @@ function Projects() {
             />
 
           </Col>
+          <Col md={4} className="project-card">
+  <ProjectCard
+    imgPath={finwell}
+    isBlog={false}
+    title="FinWell – Personal Finance Management App"
+    description="A full-stack personal finance management application that helps users track income, expenses, budgets, and financial insights through an interactive dashboard."
+    ghLink="https://github.com/BharatD4/FinWell"
+    demoLink="https://finwell-1.onrender.com"
+  />
+</Col>
 
         </Row>
 
