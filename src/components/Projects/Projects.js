@@ -8,10 +8,13 @@ import analytics from "../../Assets/Projects/enterprise-data.png";
 import drone from "../../Assets/Projects/drone-ai.png";
 import saas from "../../Assets/Projects/multi-tenant-saas.png";
 import finwell from "../../Assets/Projects/finwell.png";
+import medai from "../../Assets/Projects/medai.png";
+
 
 function Projects() {
   return (
     <Container fluid className="project-section">
+
       <Particle />
 
       <Container>
@@ -43,7 +46,10 @@ function Projects() {
 
         <Row className="modern-project-grid">
 
-          {/* PROJECT 1 */}
+
+          {/* =================================================
+              PROJECT 1
+          ================================================== */}
 
           <Col
             lg={6}
@@ -75,7 +81,9 @@ function Projects() {
           </Col>
 
 
-          {/* PROJECT 2 */}
+          {/* =================================================
+              PROJECT 2
+          ================================================== */}
 
           <Col
             lg={6}
@@ -107,7 +115,9 @@ function Projects() {
           </Col>
 
 
-          {/* PROJECT 3 */}
+          {/* =================================================
+              PROJECT 3
+          ================================================== */}
 
           <Col
             lg={6}
@@ -139,7 +149,9 @@ function Projects() {
           </Col>
 
 
-          {/* PROJECT 4 */}
+          {/* =================================================
+              PROJECT 4
+          ================================================== */}
 
           <Col
             lg={6}
@@ -155,7 +167,7 @@ function Projects() {
 
               title="Multi-Tenant SaaS Analytics Platform"
 
-              description="A cloud-deployed SaaS analytics platform for monitoring tenant-specific events, API usage, analytics, usage, billing, and system health using Next.js, Go, PostgreSQL, Redis, Docker, and Railway."
+              description="A cloud-deployed SaaS analytics platform for monitoring tenant-specific events, API usage, analytics, billing, and system health using Next.js, Go, PostgreSQL, Redis, Docker, and Railway."
 
               ghLink="https://github.com/BharatD4/multi-tenant-saas"
 
@@ -173,16 +185,85 @@ function Projects() {
             />
 
           </Col>
-          <Col md={4} className="project-card">
-  <ProjectCard
-    imgPath={finwell}
-    isBlog={false}
-    title="FinWell – Personal Finance Management App"
-    description="A full-stack personal finance management application that helps users track income, expenses, budgets, and financial insights through an interactive dashboard."
-    ghLink="https://github.com/BharatD4/FinWell"
-    demoLink="https://finwell-1.onrender.com"
-  />
-</Col>
+
+
+          {/* =================================================
+              PROJECT 5
+          ================================================== */}
+
+          <Col
+            lg={6}
+            md={6}
+            className="project-card"
+          >
+
+            <ProjectCard
+
+              imgPath={finwell}
+
+              isBlog={false}
+
+              title="FinWell – Personal Finance Management App"
+
+              description="A full-stack personal finance management application that helps users track income, expenses, budgets, and financial insights through an interactive dashboard."
+
+              ghLink="https://github.com/BharatD4/FinWell"
+
+              demoLink="https://finwell-1.onrender.com"
+
+              technologies={[
+                "React",
+                "Node.js",
+                "MongoDB",
+                "Express.js",
+                "Full Stack"
+              ]}
+
+            />
+
+          </Col>
+
+
+          {/* =================================================
+              PROJECT 6 — MEDAI
+          ================================================== */}
+
+          <Col
+            lg={6}
+            md={6}
+            className="project-card"
+          >
+
+            <ProjectCard
+
+              imgPath={medai}
+
+              isBlog={false}
+
+              title="MedAI – AI Medicine Recommendation System"
+
+              description="An AI-powered healthcare recommendation system that analyzes user symptoms and predicts possible diseases using machine learning. It provides disease descriptions, precautions, medication information, diet recommendations and workout guidance."
+
+              ghLink="https://github.com/BharatD4/MedAI-Medicine-Recommendation-System"
+
+              demoLink="https://medai-medicine-recommendation-system.onrender.com"
+
+              technologies={[
+                "Python",
+                "Flask",
+                "Machine Learning",
+                "Scikit-learn",
+                "Pandas",
+                "NumPy",
+                "HTML",
+                "CSS",
+                "JavaScript"
+              ]}
+
+            />
+
+          </Col>
+
 
         </Row>
 
